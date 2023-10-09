@@ -9,17 +9,16 @@
 
 
 .checkoutPart{
-    margin: 10px 20px;
+    margin: 10px ;
     display: flex;
+    justify-content: space-evenly;
 }
 
-@media screen and (max-width:700px){
+@media screen and (max-width:800px){
     .checkoutPart{
           display: block;
     }
-   .checkoutProduct{
-    min-width: 60vw
-   }
+  
    .checkoutPrice{
     position: static !important;
   
@@ -29,19 +28,25 @@
  .checkoutElements{
     display: flex;
     flex-direction: column;
-    margin: 20px;
+   
     flex: 0.6;
     
 }
 
+.payLogo{
+    height: 4em;
+    width:4em;
+    border-radius: 50%;  
+}
+
 .checkoutPrice{
     padding: 10px;
-   position: absolute;
-   right:4em;
-    top: 9em;
+    margin-top: 2em;
     border: 2px solid rgb(162, 153, 153);
     border-radius: 6%;
-    min-width: 30%;
+    width:22em;
+    max-width: 100%;
+    
     height: fit-content;    
     text-align: center;
 }

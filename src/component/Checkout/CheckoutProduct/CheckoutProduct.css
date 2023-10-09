@@ -1,15 +1,16 @@
 .checkoutProduct {
-  margin: 10px 30px;
+  margin: 10px ;
   padding: 10px;
   box-shadow: 5px 5px 10px rgb(117, 112, 112);
   border-radius: 2%;
   background-color: white;
-  width: 30vw;
+  max-width:28rem;
+  max-height:fit-content;
 }
 
 .checkoutProductImage {
-  
-   max-width:10em;
+  max-width: 90%;
+   height: 50%;
    object-fit: cover;
 }
 .checkoutProductRating {
