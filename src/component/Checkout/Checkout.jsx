@@ -180,7 +180,10 @@ export default function Checkout() {
                     cancel
                   </button>
                   <button
-                    onClick={() => alert("Payment Successfull")}
+                      onClick={() => {
+                        alert("Payment Successfull")
+                         setPaymentModal(false);
+                      }}
                     className="btn btn-primary m-1"
                   >
                     confirm

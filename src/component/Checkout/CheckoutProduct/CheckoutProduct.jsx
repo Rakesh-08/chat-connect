@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function CheckoutProduct({ id, title, price, image, rating,description,brand,stock }) {
   const [_, dispatch] = StateContextValue();
-  let [quantity, setQuantity] = useState(0);
+  let [quantity, setQuantity] = useState(1);
  
 
   const removeFromCart = () => {
@@ -18,14 +18,20 @@ export default function CheckoutProduct({ id, title, price, image, rating,descri
 
   return (
     <div className="checkoutProduct d-flex">
-      <div >
+      <div>
         <img className="checkoutProductImage" src={image} />
         <div className="quantityContainer mt-4 p-1">
-          <p className="fw-bold mx-auto ">1</p>
+          <p className="fw-bold mx-auto ">{quantity}</p>
           <div className="itemQuantity mx-auto">
             <button
-              value={1}
-              onClick={(e) => setQuantity(Number(e.target.value) + 1)}
+              
+              onClick={(e) => {
+                let temp = quantity;
+                if (temp >= stock) {
+                  return
+                }
+                setQuantity(temp+1)
+              }}
               className=" btn btn-primary btn-sm"
             >
               {" "}
@@ -33,8 +39,14 @@ export default function CheckoutProduct({ id, title, price, image, rating,descri
             </button>
             <p className="fst-italic mx-1"> Quantity </p>
             <button
-              value={1}
-              onClick={(e) => setQuantity(e.target.value - 1)}
+             
+              onClick={(e) => {
+                let temp = quantity
+                if (temp <=1) {
+                  return
+                }
+                setQuantity(temp-1)
+              }}
               className=" btn btn-primary btn-sm"
             >
               {" "}
@@ -56,9 +68,16 @@ export default function CheckoutProduct({ id, title, price, image, rating,descri
             ))}
         </div>
         <p className="text-muted">{description}</p>
-        <p>Brand : <span className="text-primary">{brand}</span></p>
-        <p>In Stock: <span className="text-success">{stock} units</span></p>
-        <button className="btn btn-danger " onClick={removeFromCart}> Remove from cart </button>
+        <p>
+          Brand : <span className="text-primary">{brand}</span>
+        </p>
+        <p>
+          In Stock: <span className="text-success">{stock} units</span>
+        </p>
+        <button className="btn btn-danger " onClick={removeFromCart}>
+          {" "}
+          Remove from cart{" "}
+        </button>
       </div>
     </div>
   );
