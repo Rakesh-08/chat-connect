@@ -50,9 +50,11 @@ const ChannelCard = ({ channelDetail, marginTop }) => {
                       <CheckCircle sx={{ fontSize: 14, color: "gray", ml: "5px" }}></CheckCircle>
                     
                   </Typography>
-                  <span style={{color:"gray"}}>
-                       {channelDetail?.statistics?.subscriberCount} Subscribers
-                  </span>
+
+                  {channelDetail?.statistics &&    <span style={{ color: "gray" }}>
+                       {`${channelDetail?.statistics?.subscriberCount}Subscribers`} 
+                  </span>}
+                 
                  
               </CardContent> 
           </Link>
