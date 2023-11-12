@@ -52,11 +52,12 @@ const Feed = () => {
         />
       </Box>
 
-      <Box p={2} sx={{ minHeight: "90vh", flex: 2 }}>
+      <Box  sx={{ minHeight: "90vh", flex: 2 }}>
         <Typography
           variant="h4"
           fontWeight="bold"
           mb={2}
+          p={2}
           sx={{ color: "white" }}
         >
           {selectedCategory} <span style={{ color: "orange" }}>Videos</span>

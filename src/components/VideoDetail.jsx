@@ -79,13 +79,22 @@ const VideoDetail = () => {
               </Link>
               <Stack direction="row" gap="20px" alignItems="center">
                 <Typography variant="body1" sx={{ opacity: 0.7 }}>
-                  {parseInt(statistics?.viewCount).toLocaleString()} views
+                  {parseInt(statistics?.viewCount) > 1000
+                    ? `${parseInt(statistics?.viewCount) / 1000} k`
+                    : parseInt(statistics?.viewCount)}{" "}
+                  views
                 </Typography>
                 <Typography variant="body1" sx={{ opacity: 0.7 }}>
-                  {parseInt(statistics?.likeCount).toLocaleString()} likes
+                  {parseInt(statistics?.likeCount) > 1000
+                    ? `${parseInt(statistics?.likeCount) / 1000} k`
+                    : parseInt(statistics?.likeCount)}{" "}
+                  likes
                 </Typography>
                 <Typography variant="body1" sx={{ opacity: 0.7 }}>
-                  {parseInt(statistics?.commentCount).toLocaleString()} comments
+                  {parseInt(statistics?.commentCoount) > 1000
+                    ? `${parseInt(statistics?.commentCount) / 1000} k`
+                    : parseInt(statistics?.commentCount)}{" "}
+                  comments
                 </Typography>
               </Stack>
             </Stack>
