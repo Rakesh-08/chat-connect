@@ -17,11 +17,12 @@ const VideoDetail = () => {
     fetchVideoDetail();
     
   }, [videoId]);
+  
 
   let fetchVideoDetail = async() => {
    await fetchFromApi(`videos?part=snippet,statistics&id=${videoId}`)
       .then((data) => setVideoDetail(data?.items[0]))
-      .catch((err) => console.error(err));
+      .catch((err) => console.log(err));
     
     fetchRecommendedVideos();
     
@@ -29,8 +30,10 @@ const VideoDetail = () => {
 
   let fetchRecommendedVideos = () => {
      fetchFromApi(`search?part=snippet&relatedToVideoId=${videoId}&type=video`)
-       .then((data) => setRecommendedVideos(data?.items))
-       .catch((err) => console.error(err));
+       .then((data) => {
+         setRecommendedVideos(data?.items||[])
+       })
+       .catch((err) => console.log(err));
   }
 
   if (!videoDetail) {
