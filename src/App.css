@@ -27,8 +27,7 @@ animation: spinner 2s linear infinite;
   }
 }
 
-button,
-input {
+button {
   cursor: pointer;
 }
 
@@ -54,6 +53,16 @@ input {
   top: 0;
   width: 100%;
   z-index: 1;
+}
+
+.appTitle{
+  font-family: 'Times New Roman', Times, serif;
+  background-color:lightpink;
+  font-style: italic;
+  padding:5px;
+  color:rgb(41, 55, 112);
+  border-radius:2rem;
+  
 }
 .sign-in {
   border: none;
@@ -87,14 +96,15 @@ input {
 .messages-wrapper {
   padding: 30px;
   margin-bottom: 60px;
+  
 }
 .chat-bubble {
   border-radius: 20px 20px 20px 0;
   padding: 15px;
-  background-color: #7cc5d9;
+  background-color: #2ed693;
   color: #1c2c4c;
-  width: max-content;
-  max-width: calc(100% - 50px);
+  width:fit-content;
+ max-width: 59%;
   box-shadow: -2px 2px 1px 1px #4c768d;
   display: flex;
   align-items: flex-start;
@@ -106,6 +116,13 @@ input {
   background-color: #fff;
   box-shadow: -2px 2px 1px 1px #88dded;
 }
+
+@media only screen and (max-width:658px){
+  .chat-bubble{
+    display:block !important;
+  }
+}
+
 .chat-bubble__left {
   width: 35px;
   height: 35px;

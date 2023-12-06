@@ -21,7 +21,7 @@ const NavBar = () => {
 
   return (
     <nav className="nav-bar">
-      <h1>Chat-Connect</h1>
+      <h1 className="appTitle">Chat-Connect</h1>
       {user ? (
         <button onClick={signOut} className="sign-out" type="button">
           Sign Out
