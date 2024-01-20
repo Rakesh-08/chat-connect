@@ -7,13 +7,17 @@ const Message = ({ message }) => {
     
   return (
     <div className={`chat-bubble ${message.uid === user.uid ? "right" : "left"}`}>
-      <img
+      <div style={{ display: "flex", alignItems: "center"}}>
+         <img
         className="chat-bubble__left"
         src={message.avatar}
         alt="user avatar"
       />
+      <p className="user-name">{message.name}</p>
+      </div>
+     
       <div className="chat-bubble__right">
-        <p className="user-name">{message.name}</p>
+        
         <p className="user-message">{message.text}</p>
       </div>
     </div>
