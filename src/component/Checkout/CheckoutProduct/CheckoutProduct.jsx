@@ -32,7 +32,7 @@ export default function CheckoutProduct({ id, title, price, image, rating,descri
                 }
                 setQuantity(temp+1)
               }}
-              className=" btn btn-primary btn-sm"
+              className=" btn btn-primary  "
             >
               {" "}
               +{" "}
@@ -47,7 +47,7 @@ export default function CheckoutProduct({ id, title, price, image, rating,descri
                 }
                 setQuantity(temp-1)
               }}
-              className=" btn btn-primary btn-sm"
+              className=" btn btn-primary "
             >
               {" "}
               -{" "}
@@ -56,7 +56,7 @@ export default function CheckoutProduct({ id, title, price, image, rating,descri
         </div>
       </div>
 
-      <div className="m-2 p-2 ">
+      <div className="m-1 p-1 ">
         <h4>{title}</h4>
         <small> Rs. {price}</small>
 
@@ -64,17 +64,17 @@ export default function CheckoutProduct({ id, title, price, image, rating,descri
           {Array(rating)
             .fill()
             .map((i, index) => (
-              <p key={index}> ★</p>
+              <span key={index}> ★</span>
             ))}
         </div>
         <p className="text-muted">{description}</p>
-        <p>
+        <h6>
           Brand : <span className="text-primary">{brand}</span>
-        </p>
-        <p>
+        </h6>
+        <h6>
           In Stock: <span className="text-success">{stock} units</span>
-        </p>
-        <button className="btn btn-danger " onClick={removeFromCart}>
+        </h6>
+        <button className="btn btn-danger btn-sm " onClick={removeFromCart}>
           {" "}
           Remove from cart{" "}
         </button>

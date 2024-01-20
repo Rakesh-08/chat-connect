@@ -44,10 +44,10 @@ export default function Home({ searchProduct }) {
       <div className="header">
         <header> Welcome To your own Market</header>
       </div>
-      <div className="mb-4 mt-1">
+      <div className="mb-4">
         <HealthCrousal />
       </div>
-      <div className="p-3">
+      <div className="py-3">
         <h4 className="text-center  m-4 fst-italic">
           Products Available
         </h4>

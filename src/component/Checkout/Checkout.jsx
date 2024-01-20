@@ -8,9 +8,16 @@ import CheckoutProduct from "./CheckoutProduct/CheckoutProduct";
 export default function Checkout() {
   const [{ cart }] = StateContextValue();
   let NavigateTo = useNavigate();
-  let [paymentModal, setPaymentModal] = useState(false)
+  let [paymentModal, setPaymentModal] = useState(false);
+  let [paymentMode, setPaymentMode] = useState(null);
   
-  
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  let handlePaymentModeSelection = (e) => {
+       setPaymentMode(e.target.id)
+  }
   
 
   let DeliveryCharges = 40;
@@ -36,7 +43,11 @@ export default function Checkout() {
             {" "}
             You have no items in the cart. To add products , click to "add To
             cart " button in the products page.{" "}
-            <span style={{cursor:"pointer"}} onClick={() => NavigateTo("/")} className="text-primary">
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={() => NavigateTo("/")}
+              className="text-primary"
+            >
               back To Home Page
             </span>
           </p>
@@ -128,7 +139,12 @@ export default function Checkout() {
                   Choose the payment method:
                 </label>
                 <p>
-                  <input type="radio" name="paymentMode" />{" "}
+                  <input
+                    id="phonePe"
+                    onClick={(e) => handlePaymentModeSelection(e)}
+                    type="radio"
+                    name="paymentMode"
+                  />{" "}
                   <img
                     className="payLogo"
                     src="https://i.pinimg.com/736x/2a/cf/b6/2acfb6fb41f7fcb82c3230afdecff714.jpg"
@@ -137,7 +153,12 @@ export default function Checkout() {
                 </p>
                 <p>
                   {" "}
-                  <input type="radio" name="paymentMode" />
+                  <input
+                    id="googlePay"
+                    onClick={(e) => handlePaymentModeSelection(e)}
+                    type="radio"
+                    name="paymentMode"
+                  />
                   <img
                     className="payLogo"
                     src="https://i.pinimg.com/736x/f6/60/a6/f660a637c5ea8ef2b00218bac3479c82.jpg"
@@ -146,16 +167,26 @@ export default function Checkout() {
                 </p>
                 <p>
                   {" "}
-                  <input type="radio" name="paymentMode" />
+                  <input
+                    id="amazonPay"
+                    onClick={(e) => handlePaymentModeSelection(e)}
+                    type="radio"
+                    name="paymentMode"
+                  />
                   <img
                     className="payLogo"
-                    src="https://content.pymnts.com/wp-content/uploads/2020/01/amazon-pay.png"
+                    src="https://entrackr.com/storage/2022/09/amazon-pay.jpg"
                   />{" "}
                   Amazon pay
                 </p>
                 <p>
                   {" "}
-                  <input type="radio" name="paymentMode" />{" "}
+                  <input
+                    id="debitCard"
+                    onClick={(e) => handlePaymentModeSelection(e)}
+                    type="radio"
+                    name="paymentMode"
+                  />{" "}
                   <img
                     className="payLogo"
                     src="https://brand.mastercard.com/content/dam/mccom/brandcenter/Home%20Page/mc_bc_debit_splash-choice_debit.png"
@@ -164,10 +195,15 @@ export default function Checkout() {
                 </p>
                 <p>
                   {" "}
-                  <input type="radio" name="paymentMode" />{" "}
+                  <input
+                    id="creditCard"
+                    onClick={(e) => handlePaymentModeSelection(e)}
+                    type="radio"
+                    name="paymentMode"
+                  />{" "}
                   <img
                     className="payLogo"
-                    src="https://www.vhv.rs/dpng/d/17-175065_atm-card-logo-png-transparent-png.png"
+                    src="https://cdn.britannica.com/02/160902-050-B58BAD84/Credit-cards.jpg?w=400&h=300&c=crop"
                   />{" "}
                   Credit card
                 </p>
@@ -181,9 +217,15 @@ export default function Checkout() {
                   </button>
                   <button
                       onClick={() => {
-                        alert("Payment Successfull")
-                         setPaymentModal(false);
-                      }}
+                        if (paymentMode == null) {
+                          alert("select one of the payment modes for payment")
+                        } else {
+                          alert("Payment Successfull");
+                          setPaymentModal(false);
+                        }
+                        setPaymentMode(null);
+                     
+                    }}
                     className="btn btn-primary m-1"
                   >
                     confirm

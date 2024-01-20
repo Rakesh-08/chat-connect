@@ -56,7 +56,7 @@ function Product({ id, title, price, image, rating,brand,description,stock  }) {
         <Modal.Body className="border border-warning  rounded">
           <div >
             <p>{`${title} added into your card`}</p>
-            <button onClick={()=>NavigateTo("/checkout")} className="btn btn-outline-success m-2">Proceed to checkout</button>
+            <button onClick={()=>NavigateTo("/checkout")} className="btn btn-outline-success m-1">Proceed to checkout</button>
             <button onClick={()=>setShowModal(false)} className="btn btn-outline-info m-1">Continue shopping</button>
                      </div>
         </Modal.Body>
